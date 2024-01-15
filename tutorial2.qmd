@@ -1,0 +1,91 @@
+---
+title: "Tut_2_Code"
+author: "Ricky Fung"
+date: format(Sys.time(), "%d %B %Y")
+format: html
+---
+#### Preamble ####
+# Purpose: determines the number of reports based on the category of crime.
+# Contact: ricky.fung@mail.utoronto.ca
+
+
+
+#### Workspace setup ####
+
+# load packages
+
+```{r}
+#| message: false
+#| warning: false
+
+library(janitor)
+library(tidyverse)
+library(dplyr)
+library(opendatatoronto)
+```
+
+# get package
+
+```{r}
+package <- show_package("police-annual-statistical-report-reported-crimes")
+```
+
+# get all resources for this package
+
+```{r}
+resources <- list_package_resources("police-annual-statistical-report-reported-crimes")
+```
+
+# identify datastore resources; by default, Toronto Open Data sets datastore resource format to CSV for non-geospatial and GeoJSON for geospatial resources
+
+```{r}
+datastore_resources <- filter(resources, tolower(format) %in% c('csv', 'geojson'))
+```
+
+# load the first datastore resource as a sample
+
+```{r}
+data <- filter(datastore_resources, row_number()==1) %>% get_resource()
+head(data)
+```
+
+## Cleaning and tidying data ##
+
+# Clean column names
+```{r}
+cleaned <-
+  clean_names(data)
+```
+
+# Select necessary columns
+
+```{r}
+cleaned <-
+  cleaned |>
+  select(
+    id,
+    category
+  )
+
+head(cleaned)
+```
+
+
+
+# Save cleaned data as csv file
+```{r}
+write_csv(x=cleaned, file="reported_crimes_reports.csv")
+```
+
+## Plot ##
+
+# Create bar graph to find the number of reported crimes for each category in 2014
+```{r}
+cleaned |>
+  ggplot(aes(x = category)) +
+  geom_bar() +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 25, hjust = 1)) +  # Rotate x-axis labels
+  labs(title = "Number of Reported Crimes in 2014 by Crime Category", x = "Categories", y = "Number of Reports")
+
+```
