@@ -7,9 +7,10 @@ format: html
 
 #### Preamble
 
-# Purpose: determines the number of reports based on the category of crime.
+# Purpose: To examine the number of reported crimes based on the category of crime in the year
+# 2014 and create a graph.
 # Date: 2024/01/15
-# Contact: ricky.fung\@mail.utoronto.ca
+# Contact: ricky.fung@mail.utoronto.ca
 
 #### Workspace setup
 
@@ -91,6 +92,15 @@ cleaned |>
   labs(title = "Number of Reported Crimes in 2014 by Crime Category", x = "Categories", y = "Number of Reports")
 
 ```
+```{r}
+cleaned |>
+  count(category)
+```
+
+# Share
+The 6 categories of crime we are interested in are Controlled Drugs and Substances Act, Crimes Against Property, Crimes Against the Person, Criminal Code Traffic, Other Criminal Code Violations, Other Federal Statute Violations. We are interested in the number of reports made for each category.
+
+We found that the crimes: Controlled Drugs and Substances Act had 1696 reports, Crimes Against Property had 15392, Crimes Against the Person had 8423, Criminal Code Traffic had 1832, Other Criminal Code Violations had 3737, and Other Federal Statute Violations had 920 reports.
 
 ## Citations
 

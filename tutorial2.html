@@ -104,8 +104,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="preamble" class="level4">
 <h4 class="anchored" data-anchor-id="preamble">Preamble</h4>
 </section>
-<section id="purpose-determines-the-number-of-reports-based-on-the-category-of-crime." class="level1">
-<h1>Purpose: determines the number of reports based on the category of crime.</h1>
+<section id="purpose-to-examine-the-number-of-reported-crimes-based-on-the-category-of-crime-in-the-year" class="level1">
+<h1>Purpose: To examine the number of reported crimes based on the category of crime in the year</h1>
+</section>
+<section id="and-create-a-graph." class="level1">
+<h1>2014 and create a graph.</h1>
 </section>
 <section id="date-20240115" class="level1">
 <h1>Date: 2024/01/15</h1>
@@ -217,10 +220,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="tutorial2_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cleaned <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(category)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  category                                n
+  &lt;chr&gt;                               &lt;int&gt;
+1 Controlled Drugs and Substances Act  1696
+2 Crimes Against Property             15392
+3 Crimes Against the Person            8423
+4 Criminal Code Traffic                1832
+5 Other Criminal Code Violations       3737
+6 Other Federal Statute Violations      920</code></pre>
+</div>
+</div>
+</section>
+<section id="share" class="level1">
+<h1>Share</h1>
+<p>The 6 categories of crime we are interested in are Controlled Drugs and Substances Act, Crimes Against Property, Crimes Against the Person, Criminal Code Traffic, Other Criminal Code Violations, Other Federal Statute Violations. We are interested in the number of reports made for each category.</p>
+<p>We found that the crimes: Controlled Drugs and Substances Act had 1696 reports, Crimes Against Property had 15392, Crimes Against the Person had 8423, Criminal Code Traffic had 1832, Other Criminal Code Violations had 3737, and Other Federal Statute Violations had 920 reports.</p>
 <section id="citations" class="level2">
 <h2 class="anchored" data-anchor-id="citations">Citations</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>To cite R in publications use:
 
@@ -243,7 +266,7 @@ We have invested a lot of time and effort in creating R, please cite it
 when using it for data analysis. See also 'citation("pkgname")' for
 citing R packages.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"janitor"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"janitor"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>To cite package 'janitor' in publications use:
 
@@ -263,7 +286,7 @@ https://sfirke.github.io/janitor/},
     url = {https://github.com/sfirke/janitor},
   }</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>To cite package 'tidyverse' in publications use:
 
@@ -287,7 +310,7 @@ A BibTeX entry for LaTeX users is
     doi = {10.21105/joss.01686},
   }</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>To cite package 'dplyr' in publications use:
 
@@ -305,7 +328,7 @@ A BibTeX entry for LaTeX users is
     url = {https://dplyr.tidyverse.org},
   }</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"opendatatoronto"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"opendatatoronto"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>To cite package 'opendatatoronto' in publications use:
 
